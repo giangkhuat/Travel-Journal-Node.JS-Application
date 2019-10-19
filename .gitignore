@@ -1,3 +1,4 @@
-node_modules
+# Don't track following files and modules
+/node_modules
 mongod
-data
+/data
