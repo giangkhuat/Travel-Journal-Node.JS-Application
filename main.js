@@ -1,4 +1,4 @@
-ar express     = require("express"),
+var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
@@ -13,7 +13,7 @@ ar express     = require("express"),
     seedDB      = require("./seeds"),
     methodOverride = require("method-override");
 // configure dotenv
-require('dotenv').load();
+require('dotenv').config();
 
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
