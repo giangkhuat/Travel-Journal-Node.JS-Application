@@ -8,7 +8,7 @@ This is a code along project from the Udemy course - [The Web Developer Bootcamp
 The application uses Express framework and MongoDB database 
 
 #  Live Demo
-To see live demo, please click here [YelpCamp](https://yelpcamp--demo.herokuapp.com/](https://yelpcamp--demo.herokuapp.com/)
+To see live demo, please click here [YelpCamp](https://yelpcamp--demo.herokuapp.com/)
 
 # Features
 
