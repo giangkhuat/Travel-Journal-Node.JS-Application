@@ -60,12 +60,11 @@ app.use(function(req, res, next){
    next();
 });
 
-/*
+
 app.use("/", indexRoutes);
 app.use("/locations", locationRoutes);
 app.use("/locations/:id/comments", commentRoutes);
 
-*/
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("Server Has Started!");
 });
