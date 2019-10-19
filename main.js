@@ -1,4 +1,4 @@
-var express     = require("express"),
+ar express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
@@ -6,25 +6,24 @@ var express     = require("express"),
     cookieParser = require("cookie-parser"),
     LocalStrategy = require("passport-local"),
     flash        = require("connect-flash"),
-    location  = require("./models/location"),
+    Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     session = require("express-session"),
     seedDB      = require("./seeds"),
     methodOverride = require("method-override");
 // configure dotenv
-//require('dotenv').load();
-require('dotenv').config()
+require('dotenv').load();
 
 //requiring routes
-var commentRoutes    = require("./routes/comment"),
-    locationRoutes = require("./routes/location"),
+var commentRoutes    = require("./routes/comments"),
+    campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
     
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/travel_journey';
+const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/yelp_camp';
 
 mongoose.connect(databaseUri, { useMongoClient: true })
       .then(() => console.log(`Database connected`))
@@ -41,7 +40,7 @@ app.locals.moment = require('moment');
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
-    secret: "Journal Blog for everyone",
+    secret: "Once again Rusty wins cutest dog!",
     resave: false,
     saveUninitialized: false
 }));
@@ -62,9 +61,9 @@ app.use(function(req, res, next){
 
 
 app.use("/", indexRoutes);
-app.use("/locations", locationRoutes);
-app.use("/locations/:id/comments", commentRoutes);
+app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("Server Has Started!");
+   console.log("The YelpCamp Server Has Started!");
 });
